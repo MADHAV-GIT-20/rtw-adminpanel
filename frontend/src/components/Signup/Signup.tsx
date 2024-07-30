@@ -14,7 +14,6 @@ export const Signup = () => {
     address2: '',
     phoneNumber: '',
     pinCode: '',
-    skypeId: '',
     country: '',
     stateProvince: '',
     city: '',
@@ -150,15 +149,6 @@ export const Signup = () => {
             />
           </Grid.Col>
           <Grid.Col span={6}>
-            <TextInput
-              label="Skype ID"
-              placeholder="Enter your Skype ID"
-              name="skypeId"
-              value={formValues.skypeId}
-              onChange={handleInputChange}
-            />
-          </Grid.Col>
-          <Grid.Col span={6}>
             <Select
               label="Country"
               placeholder="Enter your country"
@@ -212,7 +202,6 @@ export const Signup = () => {
                 { value: 'Uttar Pradesh', label: 'Uttar Pradesh' },
                 { value: 'Uttarakhand', label: 'Uttarakhand' },
                 { value: 'West Bengal', label: 'West Bengal' },
-                // Add more states/provinces as needed
               ]}
               required
             />
