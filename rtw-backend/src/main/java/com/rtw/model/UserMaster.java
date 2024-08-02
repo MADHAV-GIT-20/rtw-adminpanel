@@ -18,7 +18,7 @@ public class UserMaster implements UserDetails {
     public UserMaster() {
     }
 
-    public UserMaster(int userSeqNo, int userId, String userName, String password, String firstName, String lastName, Date dob, String email, int phoneNo, boolean activeYN) {
+    public UserMaster(int userSeqNo, int userId, String userName, String password, String firstName, String lastName, Date dob, String email, String phoneNo, String mobileNumber, boolean activeYN, String residentialAddress, String address2, String pinCode, String country, String stateProvince, String city) {
         this.userSeqNo = userSeqNo;
         this.userId = userId;
         this.userName = userName;
@@ -28,7 +28,14 @@ public class UserMaster implements UserDetails {
         this.dob = dob;
         this.email = email;
         this.phoneNo = phoneNo;
+        this.mobileNumber = mobileNumber;
         this.activeYN = activeYN;
+        this.residentialAddress = residentialAddress;
+        this.address2 = address2;
+        this.pinCode = pinCode;
+        this.country = country;
+        this.stateProvince = stateProvince;
+        this.city = city;
     }
 
     private int userSeqNo;
@@ -50,9 +57,18 @@ public class UserMaster implements UserDetails {
 
     private String email;
 
-    private int phoneNo;
+    private String phoneNo;
+
+    private String mobileNumber;
 
     private boolean activeYN;
+
+    private String residentialAddress;
+    private String address2;
+    private String pinCode;
+    private String country;
+    private String stateProvince;
+    private String city;
 
 
     public int getUserSeqNo() {
@@ -149,19 +165,75 @@ public class UserMaster implements UserDetails {
         this.email = email;
     }
 
-    public int getPhoneNo() {
-        return phoneNo;
-    }
-
-    public void setPhoneNo(int phoneNo) {
-        this.phoneNo = phoneNo;
-    }
-
     public boolean isActiveYN() {
         return activeYN;
     }
 
     public void setActiveYN(boolean activeYN) {
         this.activeYN = activeYN;
+    }
+
+    public String getResidentialAddress() {
+        return residentialAddress;
+    }
+
+    public void setResidentialAddress(String residentialAddress) {
+        this.residentialAddress = residentialAddress;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public String getPinCode() {
+        return pinCode;
+    }
+
+    public void setPinCode(String pinCode) {
+        this.pinCode = pinCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getStateProvince() {
+        return stateProvince;
+    }
+
+    public void setStateProvince(String stateProvince) {
+        this.stateProvince = stateProvince;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 }

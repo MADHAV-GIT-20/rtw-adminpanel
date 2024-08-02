@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthenticationService {
 
-
     private final UserMasterRepository repository;
 
     private final PasswordEncoder passwordEncoder;
@@ -37,6 +36,14 @@ public class AuthenticationService {
                 .lastName(request.getLastname())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
+                .mobileNumber(request.getMobileNumber())
+                .residentialAddress(request.getResidentialAddress())
+                .address2(request.getAddress2())
+                .phoneNo(request.getPhoneNo())
+                .pinCode(request.getPincode())
+                .country(request.getCountry())
+                .stateProvince(request.getStateProvince())
+                .city(request.getCity())
                 //.role(Role.USER)
                 .build();
         repository.save(user);

@@ -61,7 +61,7 @@ export const Login = () => {
         <SimpleGrid cols={2} w="70%">
           <Button onClick={handleSignup}>Login</Button>
 
-          <NavLink label="Signup" onClick={() => navigate('/Signup')} />
+          <NavLink label="Signup" onClick={() => navigate('/signup')} />
         </SimpleGrid>
       </Grid.Col>
     </Grid>
