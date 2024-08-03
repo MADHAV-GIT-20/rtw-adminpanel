@@ -1,1 +1,105 @@
-.navbarContainer{ padding-left: 1rem; padding-right: 1rem }
+.homeContainer {
+  background-image: url('https://drifttravel.com/wp-content/uploads/2023/01/travel-aesthetic-content-japan.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px;
+}
+
+.loginButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loginButton:hover {
+  background-color: #0056b3;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.navbar button {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  background-color: #e2e6ea;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.specialFare, .tripType {
+  margin-bottom: 20px;
+}
+
+.specialFare label, .tripType label {
+  margin-right: 10px;
+}
+
+.addCity {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.addCity:hover {
+  background-color: #218838;
+}
+
+.searchButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.searchButton:hover {
+  background-color: #0056b3;
+}

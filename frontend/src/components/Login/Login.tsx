@@ -43,7 +43,7 @@ export const Login = () => {
           </Text>
         </Box>
 
-        <Title order={2}  style={{ textDecoration: 'underline' }}>
+        <Title order={2} align="center" style={{ textDecoration: 'underline' }}>
           RTW Admin
         </Title>
         <Space h="md" />

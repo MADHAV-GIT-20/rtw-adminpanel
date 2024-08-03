@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import {HomePage }from './pages/Home/Home.page';
+import HomePage from './pages/Home/Home.page';
 import { Authenticate } from './pages/Authenticate/Authenticate.page';
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { useAuthentication } from './pages/Authenticate/store/selector';
