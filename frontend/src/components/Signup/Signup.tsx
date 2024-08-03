@@ -12,6 +12,7 @@ export const Signup = () => {
     email: '',
     residentialAddress: '',
     address2: '',
+    phoneNumber: '',
     pinCode: '',
     country: '',
     stateProvince: '',
@@ -20,6 +21,7 @@ export const Signup = () => {
   });
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('Inside handleInutChange');
     const { name, value } = event.target;
     setFormValues((prevFormValues) => ({
       ...prevFormValues,
@@ -35,6 +37,7 @@ export const Signup = () => {
   };
 
   const handleSignup = async () => {
+    // event.preventDefault;
     await axios.post('http://localhost:8181/api/v1/auth/register', formValues);
 
     // Handle signup logic here
@@ -123,6 +126,15 @@ export const Signup = () => {
               placeholder="Enter your address 2"
               name="address2"
               value={formValues.address2}
+              onChange={handleInputChange}
+            />
+          </Grid.Col>
+          <Grid.Col span={6}>
+            <TextInput
+              label="Phone Number"
+              placeholder="Enter your phone number"
+              name="phoneNumber"
+              value={formValues.phoneNumber}
               onChange={handleInputChange}
             />
           </Grid.Col>
