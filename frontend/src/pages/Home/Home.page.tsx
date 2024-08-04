@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
     <div className={styles.homeContainer}>
       <div className={styles.box}>
         <div className={styles.header}>
-          <img src="https://risicindia.com/wp-content/uploads/2022/07/Logo-2.jpeg" alt="Logo" className={styles.logo} />
+          <img alt="Logo" className={styles.logo} />
           <button onClick={handleLogin} className={styles.loginButton}>Login</button>
         </div>
 
