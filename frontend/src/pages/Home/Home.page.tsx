@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from "./Home.module.css";
+import styles from './Home.module.css';
 
-function HomePage() {
+const HomePage: React.FC = () => {
   const [tripType, setTripType] = useState('oneway');
   const [specialFare, setSpecialFare] = useState('regular');
   const [category, setCategory] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate('/login');
-  };
-
   return (
     <div className={styles.homeContainer}>
       <div className={styles.box}>
-        <div className={styles.header}>
-          <img src="/path/to/logo.png" alt="Logo" className={styles.logo} />
-          <button onClick={handleLogin} className={styles.loginButton}>Login</button>
+      <div className={styles.topNavbar}>
+        <div className={styles.rightSection}>
+          <span>USER NAME</span>
+          <button onClick={() => navigate('/logout')}>LOGOUT</button>
         </div>
-
+      </div>
+      <div className={styles.box}>
         <div className={styles.navbar}>
           <button onClick={() => setCategory('flights')}>Flights</button>
           <button onClick={() => setCategory('hotels')}>Hotels</button>
@@ -36,7 +34,8 @@ function HomePage() {
                   name="tripType"
                   value="oneway"
                   checked={tripType === 'oneway'}
-                  onChange={() => setTripType('oneway')} />
+                  onChange={() => setTripType('oneway')}
+                />
                 One Way
               </label>
               <label>
@@ -45,7 +44,8 @@ function HomePage() {
                   name="tripType"
                   value="roundtrip"
                   checked={tripType === 'roundtrip'}
-                  onChange={() => setTripType('roundtrip')} />
+                  onChange={() => setTripType('roundtrip')}
+                />
                 Round Trip
               </label>
               <label>
@@ -54,7 +54,8 @@ function HomePage() {
                   name="tripType"
                   value="multicity"
                   checked={tripType === 'multicity'}
-                  onChange={() => setTripType('multicity')} />
+                  onChange={() => setTripType('multicity')}
+                />
                 Multi City
               </label>
             </div>
@@ -102,7 +103,8 @@ function HomePage() {
                   name="specialFare"
                   value="regular"
                   checked={specialFare === 'regular'}
-                  onChange={() => setSpecialFare('regular')} />
+                  onChange={() => setSpecialFare('regular')}
+                />
                 Regular
               </label>
               <label>
@@ -111,7 +113,8 @@ function HomePage() {
                   name="specialFare"
                   value="student"
                   checked={specialFare === 'student'}
-                  onChange={() => setSpecialFare('student')} />
+                  onChange={() => setSpecialFare('student')}
+                />
                 Student
               </label>
               <label>
@@ -120,7 +123,8 @@ function HomePage() {
                   name="specialFare"
                   value="senior"
                   checked={specialFare === 'senior'}
-                  onChange={() => setSpecialFare('senior')} />
+                  onChange={() => setSpecialFare('senior')}
+                />
                 Senior Citizen
               </label>
               <label>
@@ -129,7 +133,8 @@ function HomePage() {
                   name="specialFare"
                   value="armed"
                   checked={specialFare === 'armed'}
-                  onChange={() => setSpecialFare('armed')} />
+                  onChange={() => setSpecialFare('armed')}
+                />
                 Armed Forces
               </label>
               <label>
@@ -138,7 +143,8 @@ function HomePage() {
                   name="specialFare"
                   value="doctor"
                   checked={specialFare === 'doctor'}
-                  onChange={() => setSpecialFare('doctor')} />
+                  onChange={() => setSpecialFare('doctor')}
+                />
                 Doctor and Nurses
               </label>
             </div>
@@ -189,8 +195,9 @@ function HomePage() {
 
         <button className={styles.searchButton}>SEARCH</button>
       </div>
+      </div>
     </div>
   );
-}
+};
 
 export default HomePage;

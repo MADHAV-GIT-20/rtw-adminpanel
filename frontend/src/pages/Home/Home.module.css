@@ -1,11 +1,10 @@
 .homeContainer {
-  background-image: url('https://drifttravel.com/wp-content/uploads/2023/01/travel-aesthetic-content-japan.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 20px;
+  text-align: center;
+  height:100vh;
+  background-image: url('https://cdn.pixabay.com/photo/2018/08/16/08/39/hallstatt-3609863_640.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .box {
@@ -15,91 +14,123 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.header {
+.topNavbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+  /* align-items: center; */
+  padding: 10px;
+  border-bottom: 1px solid black;
 }
 
-.logo {
-  width: 100px;
+/* .leftSection {
+  display: flex;
+  gap: 10px;
 }
 
-.loginButton {
-  background-color: #007bff;
-  color: white;
+.leftSection button {
+  background: none;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  color: black;
+  font-weight: bold;
+} */
+
+.leftSection button:hover {
+  color: yellow;
 }
 
-.loginButton:hover {
-  background-color: #0056b3;
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left:auto;
+}
+
+.rightSection span {
+  font-weight: bold;
+}
+
+.rightSection button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+
+.rightSection button:hover {
+  color: red;
+}
+
+.box {
+  margin-top: 20px;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
 .navbar button {
-  background-color: #f8f9fa;
-  border: 1px solid #ced4da;
+  background: none;
+  border: 1px solid #ccc;
   padding: 10px 20px;
-  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
-.navbar button:hover {
-  background-color: #e2e6ea;
+.tripType,
+.specialFare {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
 }
 
 .columns {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-}
-
-.column {
-  flex: 1;
-  min-width: 200px;
-}
-
-.specialFare, .tripType {
   margin-bottom: 20px;
 }
 
-.specialFare label, .tripType label {
-  margin-right: 10px;
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.column label {
+  margin-bottom: 5px;
+}
+
+.column input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
 }
 
 .addCity {
-  background-color: #28a745;
-  color: white;
+  padding: 10px 20px;
   border: none;
-  padding: 10px;
-  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
   cursor: pointer;
-  margin-top: 10px;
-}
-
-.addCity:hover {
-  background-color: #218838;
+  border-radius: 5px;
 }
 
 .searchButton {
-  background-color: #007bff;
-  color: white;
-  border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border: none;
+  background-color: blue;
+  color: white;
   cursor: pointer;
-  margin-top: 20px;
-}
-
-.searchButton:hover {
-  background-color: #0056b3;
+  border-radius: 5px;
+  font-size: 16px;
 }
