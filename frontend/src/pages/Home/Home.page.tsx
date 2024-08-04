@@ -8,18 +8,16 @@ const HomePage: React.FC = () => {
   const [category, setCategory] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    navigate('/login');
-  };
-
   return (
     <div className={styles.homeContainer}>
       <div className={styles.box}>
-        <div className={styles.header}>
-          <img alt="Logo" className={styles.logo} />
-          <button onClick={handleLogin} className={styles.loginButton}>Login</button>
+      <div className={styles.topNavbar}>
+        <div className={styles.rightSection}>
+          <span>USER NAME</span>
+          <button onClick={() => navigate('/logout')}>LOGOUT</button>
         </div>
-
+      </div>
+      <div className={styles.box}>
         <div className={styles.navbar}>
           <button onClick={() => setCategory('flights')}>Flights</button>
           <button onClick={() => setCategory('hotels')}>Hotels</button>
@@ -196,6 +194,7 @@ const HomePage: React.FC = () => {
         )}
 
         <button className={styles.searchButton}>SEARCH</button>
+      </div>
       </div>
     </div>
   );
