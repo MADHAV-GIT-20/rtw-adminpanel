@@ -1,8 +1,21 @@
 // import { HomePage } from '@/pages/Home/Home.page';
-import { Button, Grid, NavLink, SimpleGrid, TextInput } from '@mantine/core';
+import {
+  Anchor,
+  Box,
+  Button,
+  Grid,
+  Group,
+  NavLink,
+  SimpleGrid,
+  Space,
+  Stack,
+  Text,
+  TextInput,
+  Title,
+} from '@mantine/core';
 import { Link, useNavigate } from 'react-router-dom';
 import { Signup } from '../Signup/Signup';
-import { Authenticate } from '@/pages/Authenticate/Authenticate.page';
+import { Authenticate } from '../../pages/Authenticate/Authenticate.page';
 import axios from 'axios';
 import { useState } from 'react';
 
@@ -37,33 +50,80 @@ export const Login = () => {
   };
 
   return (
-    <Grid w="70%">
-      <Grid.Col>
-        <TextInput
-          placeholder="Enter email"
-          name="email"
-          value={loginValues.email}
-          onChange={handleInputChange}
-          required
-        />
-      </Grid.Col>
-      <Grid.Col>
-        <TextInput
-          placeholder="Enter password"
-          name="password"
-          value={loginValues.password}
-          onChange={handleInputChange}
-          required
-          type="password"
-        />
-      </Grid.Col>
-      <Grid.Col>
-        <SimpleGrid cols={2} w="70%">
-          <Button onClick={handleSignup}>Login</Button>
+    <Box
+      style={{
+        height: '200vh',
+        width: '100vw',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundImage:
+          'url(https://cdn2.vectorstock.com/i/1000x1000/18/46/seamless-pattern-background-travel-vector-9631846.jpg)',
+        backgroundSize: 'cover',
+      }}
+    >
+      <Stack
+        align="center"
+        justify="center"
+        style={{
+          padding: '2rem',
+          borderRadius: '8px',
+          backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          width: '100%',
+          maxWidth: '400px',
+        }}
+      >
+        <Box
+          style={{
+            padding: '1rem',
+            borderRadius: '8px',
+            backgroundColor: '#a8dadc', // Semi-transparent dark background
+            color: '#000000',
+            textAlign: 'center',
+            marginBottom: '1rem',
+            width: '100%', // Ensure the box takes full width
+          }}
+        >
+          <Text style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Welcome to RTW</Text>
+        </Box>
 
-          <NavLink label="Signup" onClick={() => navigate('/signup')} />
-        </SimpleGrid>
-      </Grid.Col>
-    </Grid>
+        <Title order={2} style={{ textDecoration: 'underline' }}>
+          RTW Admin
+        </Title>
+        <Space h="md" />
+        <Grid gutter="lg">
+          <Grid.Col>
+            <TextInput
+              placeholder="Enter email"
+              name="email"
+              value={loginValues.email}
+              onChange={handleInputChange}
+              required
+            />
+          </Grid.Col>
+          <Grid.Col>
+            <TextInput
+              placeholder="Enter password"
+              name="password"
+              value={loginValues.password}
+              onChange={handleInputChange}
+              required
+              type="password"
+            />
+          </Grid.Col>
+          <Grid.Col>
+            <Group>
+              <Button fullWidth onClick={handleSignup}>
+                Login
+              </Button>
+
+              <Anchor component="button" type="button" onClick={() => navigate('/signup')}>
+                Signup
+              </Anchor>
+            </Group>
+          </Grid.Col>
+        </Grid>
+      </Stack>
+    </Box>
   );
 };
