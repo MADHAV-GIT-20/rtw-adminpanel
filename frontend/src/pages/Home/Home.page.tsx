@@ -2,11 +2,55 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.css';
 
+const flightData = [
+  {
+    airline: 'Air India',
+    flightNumber: 'AI 803',
+    departureTime: '06:10',
+    arrivalTime: '08:55',
+    duration: '02 h 45 m',
+    from: 'New Delhi',
+    to: 'Bengaluru',
+    price: '₹ 6,339',
+    meal: 'Free Meal',
+    logo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf7DCN-Kw6iFYufGv9KLDdHR3AdmbYhNzGdA&s',
+  },
+  {
+    airline: 'Air India',
+    flightNumber: 'AI 813',
+    departureTime: '08:00',
+    arrivalTime: '11:00',
+    duration: '03 h',
+    from: 'New Delhi',
+    to: 'Bengaluru',
+    price: '₹ 6,339',
+    meal: 'Free Meal',
+    logo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf7DCN-Kw6iFYufGv9KLDdHR3AdmbYhNzGdA&s',
+  },
+  {
+    airline: 'Vistara',
+    flightNumber: 'UK 811',
+    departureTime: '06:15',
+    arrivalTime: '09:05',
+    duration: '02 h 50 m',
+    from: 'New Delhi',
+    to: 'Bengaluru',
+    price: '₹ 6,665',
+    meal: 'Free Meal',
+    logo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlD_CFs8_UsBROZyFrZkExAeY0Ot9764OtLw&s',
+  },
+];
+
 const HomePage: React.FC = () => {
   const [tripType, setTripType] = useState('oneway');
   const [specialFare, setSpecialFare] = useState('regular');
   const [category, setCategory] = useState('');
+  const [showFlights, setShowFlights] = useState(false);
   const navigate = useNavigate();
+
+  const handleSearch = () => {
+    setShowFlights(true);
+  };
 
   return (
     <div className={styles.homeContainer}>
@@ -27,6 +71,7 @@ const HomePage: React.FC = () => {
 
           {category === 'flights' && (
             <>
+              {/* Existing flight search form */}
               <div className={styles.tripType}>
                 <label>
                   <input
@@ -193,7 +238,36 @@ const HomePage: React.FC = () => {
             </div>
           )}
 
-          <button className={styles.searchButton}>SEARCH</button>
+          <button className={styles.searchButton} onClick={handleSearch}>
+            SEARCH
+          </button>
+
+          {showFlights && (
+            <div className={styles.flightResults}>
+              <h2>Flights sorted by Lowest fares on this route</h2>
+              {flightData.map((flight, index) => (
+                <div key={index} className={styles.flightCard}>
+                  <div className={styles.flightDetails}>
+                    <span>{flight.meal}</span>
+                    <div className={styles.airlineInfo}>
+                      <img src={flight.logo} alt={`${flight.airline} logo`} className={styles.airlineLogo} />
+                    
+                      <strong>{flight.airline}</strong>
+                      <span>{flight.flightNumber}</span>
+                    </div>
+                    <div>
+                      <strong>{flight.departureTime}</strong> -{' '}
+                      <span>{flight.duration}</span> -{' '}
+                      <strong>{flight.arrivalTime}</strong>
+                    </div>
+                    <div>{flight.from} - {flight.to}</div>
+                    <div className={styles.flightPrice}>{flight.price}</div>
+                    <button className={styles.viewPricesButton}>VIEW PRICES</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
