@@ -4,6 +4,7 @@ import { Authenticate } from './pages/Authenticate/Authenticate.page';
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { useAuthentication } from './pages/Authenticate/store/selector';
 import { Signup } from './components/Signup/Signup';
+import FlightList from './pages/Flight/FlightList';
 
 export function AppRoutes() {
   const authenticator = useAuthentication();
@@ -17,6 +18,7 @@ export function AppRoutes() {
         <Route path="/" element={<Authenticate />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/menu" element={<HomePage />} />
+        <Route path="/flights" element={<FlightList />} />
       </Routes>
     </Router>
   );

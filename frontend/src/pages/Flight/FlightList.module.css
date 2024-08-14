@@ -1,0 +1,97 @@
+.flightListContainer {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .sortOptions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .sortButton {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .flightList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .flightOption {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .flightDetails {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .airlineLogo img {
+    width: 50px;
+    height: auto;
+  }
+  
+  .flightInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+  
+  .timeDetails, .locationDetails, .meals {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .priceDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .price {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .onTime {
+    color: green;
+  }
+  
+  .viewPricesButton {
+    background-color: #007aff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .discountCode {
+    background-color: #fff4e5;
+    padding: 10px;
+    color: #f76c00;
+    font-weight: bold;
+    text-align: center;
+  }
