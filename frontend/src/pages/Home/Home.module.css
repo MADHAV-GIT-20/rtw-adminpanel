@@ -1,136 +1,97 @@
-.homeContainer {
+.flightListContainer {
+  width: 100%;
+  background-color: #f9f9f9;
   padding: 20px;
-  text-align: center;
-  height:100vh;
-  background-image: url('https://cdn.pixabay.com/photo/2018/08/16/08/39/hallstatt-3609863_640.jpg');
-    background-size: cover;
-    background-position: center;
 }
 
-.box {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.topNavbar {
+.header {
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
-  padding: 10px;
-  border-bottom: 1px solid black;
-}
-
-/* .leftSection {
-  display: flex;
-  gap: 10px;
-}
-
-.leftSection button {
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  color: black;
-  font-weight: bold;
-} */
-
-.leftSection button:hover {
-  color: yellow;
-}
-
-.rightSection {
-  display: flex;
   align-items: center;
-  gap: 20px;
-  margin-left:auto;
+  margin-bottom: 20px;
 }
 
-.rightSection span {
-  font-weight: bold;
-}
-
-.rightSection button {
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  color: black;
-  font-weight: bold;
-}
-
-.rightSection button:hover {
-  color: red;
-}
-
-.box {
-  margin-top: 20px;
-}
-
-.navbar {
+.sortOptions {
   display: flex;
-  justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
 }
 
-.navbar button {
-  background: none;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-  font-size: 16px;
+.sortButton {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 10px;
   cursor: pointer;
-  border-radius: 5px;
+  font-weight: bold;
 }
 
-.tripType,
-.specialFare {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.columns {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.column {
+.flightList {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  gap: 20px;
 }
 
-.column label {
+.flightOption {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flightDetails {
+  display: flex;
+  justify-content: space-between;
+}
+
+.airlineLogo img {
+  width: 50px;
+  height: auto;
+}
+
+.flightInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.timeDetails, .locationDetails, .meals {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 5px;
 }
 
-.column input {
+.priceDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.onTime {
+  color: green;
+}
+
+.viewPricesButton {
+  background-color: #007aff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.discountCode {
+  background-color: #fff4e5;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 200px;
-}
-
-.addCity {
-  padding: 10px 20px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.searchButton {
-  padding: 10px 20px;
-  border: none;
-  background-color: blue;
-  color: white;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
+  color: #f76c00;
+  font-weight: bold;
+  text-align: center;
 }
