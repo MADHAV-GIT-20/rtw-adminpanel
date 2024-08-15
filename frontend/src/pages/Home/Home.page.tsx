@@ -13,7 +13,7 @@ const flightData = [
     to: 'Bengaluru',
     price: '₹ 6,339',
     meal: 'Free Meal',
-    logo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf7DCN-Kw6iFYufGv9KLDdHR3AdmbYhNzGdA&s',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf7DCN-Kw6iFYufGv9KLDdHR3AdmbYhNzGdA&s',
   },
   {
     airline: 'Air India',
@@ -25,7 +25,7 @@ const flightData = [
     to: 'Bengaluru',
     price: '₹ 6,339',
     meal: 'Free Meal',
-    logo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf7DCN-Kw6iFYufGv9KLDdHR3AdmbYhNzGdA&s',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTf7DCN-Kw6iFYufGv9KLDdHR3AdmbYhNzGdA&s',
   },
   {
     airline: 'Vistara',
@@ -37,18 +37,26 @@ const flightData = [
     to: 'Bengaluru',
     price: '₹ 6,665',
     meal: 'Free Meal',
-    logo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlD_CFs8_UsBROZyFrZkExAeY0Ot9764OtLw&s',
+    logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlD_CFs8_UsBROZyFrZkExAeY0Ot9764OtLw&s',
   },
 ];
+
+const cities = ['Select', 'New Delhi', 'Mumbai', 'Bengaluru', 'Kolkata', 'Chennai'];
 
 const HomePage: React.FC = () => {
   const [tripType, setTripType] = useState('oneway');
   const [specialFare, setSpecialFare] = useState('regular');
   const [category, setCategory] = useState('');
   const [showFlights, setShowFlights] = useState(false);
+  const [fromCity, setFromCity] = useState(cities[0]); // Default to 'Select'
+  const [toCity, setToCity] = useState(cities[0]); // Default to 'Select'
   const navigate = useNavigate();
 
   const handleSearch = () => {
+    if (fromCity === 'Select' || toCity === 'Select') {
+      alert('Please select both From and To cities');
+      return;
+    }
     setShowFlights(true);
   };
 
@@ -71,7 +79,6 @@ const HomePage: React.FC = () => {
 
           {category === 'flights' && (
             <>
-              {/* Existing flight search form */}
               <div className={styles.tripType}>
                 <label>
                   <input
@@ -108,11 +115,23 @@ const HomePage: React.FC = () => {
               <div className={styles.columns}>
                 <div className={styles.column}>
                   <label>From</label>
-                  <input type="text" placeholder="Enter city" />
+                  <select value={fromCity} onChange={(e) => setFromCity(e.target.value)}>
+                    {cities.map((city) => (
+                      <option key={city} value={city}>
+                        {city}
+                      </option>
+                    ))}
+                  </select>
                 </div>
                 <div className={styles.column}>
                   <label>To</label>
-                  <input type="text" placeholder="Enter city" />
+                  <select value={toCity} onChange={(e) => setToCity(e.target.value)}>
+                    {cities.map((city) => (
+                      <option key={city} value={city}>
+                        {city}
+                      </option>
+                    ))}
+                  </select>
                 </div>
                 {tripType !== 'oneway' && (
                   <div className={styles.column}>
@@ -130,11 +149,23 @@ const HomePage: React.FC = () => {
                 <div className={styles.columns}>
                   <div className={styles.column}>
                     <label>From</label>
-                    <input type="text" placeholder="Enter city" />
+                    <select>
+                      {cities.map((city) => (
+                        <option key={city} value={city}>
+                          {city}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                   <div className={styles.column}>
                     <label>To</label>
-                    <input type="text" placeholder="Enter city" />
+                    <select>
+                      {cities.map((city) => (
+                        <option key={city} value={city}>
+                          {city}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                   <button className={styles.addCity}>Add Another City</button>
                 </div>
@@ -196,48 +227,6 @@ const HomePage: React.FC = () => {
             </>
           )}
 
-          {category === 'hotels' && (
-            <div className={styles.columns}>
-              <div className={styles.column}>
-                <label>City/Location</label>
-                <input type="text" placeholder="Enter city or location" />
-              </div>
-              <div className={styles.column}>
-                <label>Check-In</label>
-                <input type="date" />
-              </div>
-              <div className={styles.column}>
-                <label>Check-Out</label>
-                <input type="date" />
-              </div>
-              <div className={styles.column}>
-                <label>Rooms And Guests</label>
-                <input type="text" placeholder="Enter rooms and guests" />
-              </div>
-              <div className={styles.column}>
-                <label>Price Per Night</label>
-                <input type="text" placeholder="Enter price per night" />
-              </div>
-            </div>
-          )}
-
-          {category === 'packages' && (
-            <div className={styles.columns}>
-              <div className={styles.column}>
-                <label>From City</label>
-                <input type="text" placeholder="Enter from city" />
-              </div>
-              <div className={styles.column}>
-                <label>To City</label>
-                <input type="text" placeholder="Enter to city" />
-              </div>
-              <div className={styles.column}>
-                <label>Depart Date</label>
-                <input type="date" />
-              </div>
-            </div>
-          )}
-
           <button className={styles.searchButton} onClick={handleSearch}>
             SEARCH
           </button>
@@ -251,7 +240,6 @@ const HomePage: React.FC = () => {
                     <span>{flight.meal}</span>
                     <div className={styles.airlineInfo}>
                       <img src={flight.logo} alt={`${flight.airline} logo`} className={styles.airlineLogo} />
-                    
                       <strong>{flight.airline}</strong>
                       <span>{flight.flightNumber}</span>
                     </div>
