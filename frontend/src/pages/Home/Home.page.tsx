@@ -262,7 +262,7 @@ const HomePage: React.FC = () => {
                     </div>
                     <div>{flight.from} - {flight.to}</div>
                     <div className={styles.flightPrice}>{flight.price}</div>
-                    <button className={styles.viewPricesButton}>VIEW PRICES</button>
+                    <button className={styles.viewDetailsButton}>VIEW DETAILS</button>
                   </div>
                 </div>
               ))}
