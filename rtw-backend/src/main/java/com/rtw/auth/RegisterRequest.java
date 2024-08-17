@@ -70,11 +70,11 @@ public class RegisterRequest {
         this.address2 = address2;
     }
 
-    public String getPincode() {
+    public String getpinCode() {
         return pinCode;
     }
 
-    public void setPinCode(String pinCode) {
+    public void setpinCode(String pinCode) {
         this.pinCode = pinCode;
     }
 

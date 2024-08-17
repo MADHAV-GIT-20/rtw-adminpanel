@@ -1,5 +1,6 @@
 import { SimpleGrid, Stack, Title } from '@mantine/core';
-import { Login } from '@/components/Login/Login';
+import { Login } from 'C:/Users/Megha/OneDrive/Desktop/Repo/rtw-adminpanel/frontend/src/components/Login/Login';
+
 
 export const Authenticate = () => (
   <Stack h="100%" w="100%" align="center" justify="center">

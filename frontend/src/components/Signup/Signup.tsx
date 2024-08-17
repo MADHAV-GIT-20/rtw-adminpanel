@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
-import { Button, Grid, Stack, TextInput, Title, Box, Space, Anchor, Select } from '@mantine/core';
+import {
+  Button,
+  Grid,
+  Stack,
+  TextInput,
+  Title,
+  Box,
+  Space,
+  Anchor,
+  Select,
+  BackgroundImage,
+} from '@mantine/core';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -12,7 +23,7 @@ export const Signup = () => {
     email: '',
     residentialAddress: '',
     address2: '',
-    phoneNumber: '',
+    phoneNo: '',
     pinCode: '',
     country: '',
     stateProvince: '',
@@ -52,7 +63,7 @@ export const Signup = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundImage: 'url(bg.jpg)',
+        backgroundImage: 'url(bg.jpg})',
         backgroundSize: 'cover',
       }}
     >
@@ -133,8 +144,8 @@ export const Signup = () => {
             <TextInput
               label="Phone Number"
               placeholder="Enter your phone number"
-              name="phoneNumber"
-              value={formValues.phoneNumber}
+              name="phoneNo"
+              value={formValues.phoneNo}
               onChange={handleInputChange}
             />
           </Grid.Col>
