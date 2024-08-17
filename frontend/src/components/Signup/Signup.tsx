@@ -73,7 +73,7 @@ export const Signup = () => {
         style={{
           padding: '5rem',
           borderRadius: '8px',
-          backgroundColor: '#ffffff',
+          backgroundColor: 'rgba(255, 255, 255, 0.85)',
           width: '100%',
           maxWidth: '1000px',
         }}

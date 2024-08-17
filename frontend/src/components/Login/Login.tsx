@@ -1,65 +1,19 @@
-// import { HomePage } from '@/pages/Home/Home.page';
-import {
-  Anchor,
-  Box,
-  Button,
-  Grid,
-  Group,
-  NavLink,
-  SimpleGrid,
-  Space,
-  Stack,
-  Text,
-  TextInput,
-  Title,
-} from '@mantine/core';
-import { Link, useNavigate } from 'react-router-dom';
-import { Signup } from '../Signup/Signup';
-import { Authenticate } from '../../pages/Authenticate/Authenticate.page';
-import axios from 'axios';
-import { useState } from 'react';
+import { Button, Grid, Stack, TextInput, Title, Group, Anchor, Box, Space, Text } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   const navigate = useNavigate();
-  const [loginValues, setLoginValues] = useState({
-    email: '',
-    password: '',
-  });
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('Inside handleInputChange');
-    const { name, value } = event.target;
-    setLoginValues((prevFormValues) => ({
-      ...prevFormValues,
-      [name]: value,
-    }));
-  };
-
-  const handleSignup = async () => {
-    // event.preventDefault;
-    const response = await axios.post(
-      'http://localhost:8181/api/v1/auth/authenticate',
-      loginValues
-    );
-
-    console.log('Login Form Values:', loginValues);
-
-    if (response.data != null) {
-      navigate('/menu');
-    }
-  };
 
   return (
     <Box
       style={{
         height: '200vh',
-        width: '100vw',
+        width: '100 Qvw',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundImage:
-          'url(https://cdn2.vectorstock.com/i/1000x1000/18/46/seamless-pattern-background-travel-vector-9631846.jpg)',
-        backgroundSize: 'cover',
+        // backgroundImage: 'url(https://cdn2.vectorstock.com/i/1000x1000/18/46/seamless-pattern-background-travel-vector-9631846.jpg)',
+        // backgroundSize: 'cover',
       }}
     >
       <Stack
@@ -77,14 +31,16 @@ export const Login = () => {
           style={{
             padding: '1rem',
             borderRadius: '8px',
-            backgroundColor: '#a8dadc', // Semi-transparent dark background
+            backgroundColor: '#a8dadc', 
             color: '#000000',
             textAlign: 'center',
             marginBottom: '1rem',
-            width: '100%', // Ensure the box takes full width
+            width: '100%', 
           }}
         >
-          <Text style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Welcome to RTW</Text>
+          <Text style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+            Welcome to RTW
+          </Text>
         </Box>
 
         <Title order={2} style={{ textDecoration: 'underline' }}>
@@ -93,30 +49,14 @@ export const Login = () => {
         <Space h="md" />
         <Grid gutter="lg">
           <Grid.Col>
-            <TextInput
-              placeholder="Enter email"
-              name="email"
-              value={loginValues.email}
-              onChange={handleInputChange}
-              required
-            />
+            <TextInput label="Username" placeholder="Enter your username" required />
           </Grid.Col>
           <Grid.Col>
-            <TextInput
-              placeholder="Enter password"
-              name="password"
-              value={loginValues.password}
-              onChange={handleInputChange}
-              required
-              type="password"
-            />
+            <TextInput label="Password" placeholder="Enter your password" type="password" required />
           </Grid.Col>
           <Grid.Col>
             <Group>
-              <Button fullWidth onClick={handleSignup}>
-                Login
-              </Button>
-
+              <Button fullWidth>Login</Button>
               <Anchor component="button" type="button" onClick={() => navigate('/signup')}>
                 Signup
               </Anchor>
