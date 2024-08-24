@@ -5,19 +5,18 @@ import {
   Button,
   Grid,
   Group,
-  NavLink,
-  SimpleGrid,
-  Space,
   Stack,
   Text,
   TextInput,
   Title,
+  Space,
+  PasswordInput,
+  Alert,
 } from '@mantine/core';
 import { Link, useNavigate } from 'react-router-dom';
-import { Signup } from '../Signup/Signup';
-import { Authenticate } from '../../pages/Authenticate/Authenticate.page';
-import axios from 'axios';
 import { useState } from 'react';
+import { IconEye, IconEyeOff, IconAlertCircle } from '@tabler/icons-react';
+import axios from 'axios';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -25,9 +24,10 @@ export const Login = () => {
     email: '',
     password: '',
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('Inside handleInputChange');
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setLoginValues((prevFormValues) => ({
       ...prevFormValues,
@@ -36,16 +36,19 @@ export const Login = () => {
   };
 
   const handleSignup = async () => {
-    // event.preventDefault;
-    const response = await axios.post(
-      'http://localhost:8181/api/v1/auth/authenticate',
-      loginValues
-    );
+    try {
+      const response = await axios.post(
+        'http://localhost:8181/api/v1/auth/authenticate',
+        loginValues
+      );
 
-    console.log('Login Form Values:', loginValues);
-
-    if (response.data != null) {
-      navigate('/menu');
+      if (response.data != null) {
+        navigate('/menu');
+      } else {
+        setErrorMessage('Invalid credentials');
+      }
+    } catch (error) {
+      setErrorMessage('Invalid credentials');
     }
   };
 
@@ -77,11 +80,11 @@ export const Login = () => {
           style={{
             padding: '1rem',
             borderRadius: '8px',
-            backgroundColor: '#a8dadc', // Semi-transparent dark background
+            backgroundColor: '#a8dadc',
             color: '#000000',
             textAlign: 'center',
             marginBottom: '1rem',
-            width: '100%', // Ensure the box takes full width
+            width: '100%',
           }}
         >
           <Text style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Welcome to RTW</Text>
@@ -102,16 +105,29 @@ export const Login = () => {
             />
           </Grid.Col>
           <Grid.Col>
-            <TextInput
+            <PasswordInput
               placeholder="Enter password"
               name="password"
               value={loginValues.password}
               onChange={handleInputChange}
               required
-              type="password"
+              visibilityToggleIcon={({ reveal, size }) =>
+                reveal ? <IconEyeOff size={size} /> : <IconEye size={size} />
+              }
+              visible={showPassword}
+              onVisibilityChange={() => setShowPassword((prev) => !prev)}
             />
           </Grid.Col>
           <Grid.Col>
+            {errorMessage && (
+              <Alert
+                icon={<IconAlertCircle size="1rem" />}
+                title="Login failed"
+                color="red"
+              >
+                {errorMessage}
+              </Alert>
+            )}
             <Group>
               <Button fullWidth onClick={handleSignup}>
                 Login
